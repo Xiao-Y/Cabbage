@@ -1,10 +1,13 @@
 package com.billow.test.config;
 
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -29,10 +32,13 @@ public class SqlSessionFactoryConfig {
     @Bean("sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
 
-        SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
-        sessionFactoryBean.setDataSource(targerDataSource);
-        sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath*:mapper/*.xml"));
-        return sessionFactoryBean.getObject();
+        MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
+        bean.setDataSource(targerDataSource);
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/*.xml"));
+
+        MybatisConfiguration mybatisConfiguration = new MybatisConfiguration();
+        mybatisConfiguration.addInterceptor(new PaginationInterceptor());
+        bean.setConfiguration(mybatisConfiguration);
+        return bean.getObject();
     }
 }

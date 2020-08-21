@@ -1,9 +1,8 @@
 package com.billow.test.dao;
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.billow.test.dto.GoodsBrandPo;
-
-import java.util.List;
 
 /**
  * <p>
@@ -13,9 +12,5 @@ import java.util.List;
  * @author billow
  * @since 2020-08-08
  */
-public interface GoodsBrandDao {
-
-    List<GoodsBrandPo> findList();
-
-    void updateById(GoodsBrandPo po);
+public interface GoodsBrandDao extends BaseMapper<GoodsBrandPo> {
 }

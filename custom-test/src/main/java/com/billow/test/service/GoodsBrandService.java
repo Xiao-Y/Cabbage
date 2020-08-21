@@ -9,4 +9,8 @@ public interface GoodsBrandService {
     List<GoodsBrandPo> findList();
 
     void updateById(GoodsBrandPo po);
+
+    void findTest();
+
+    void saveTest();
 }

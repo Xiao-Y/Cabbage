@@ -27,6 +27,4 @@ public class GoodsBrandServiceTest {
     public void save() {
         goodsBrandService.saveTest();
     }
-
-
 }
