@@ -2,7 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+    <modules>
+        <module>custom</module>
+        <module>custom-test</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -12,9 +16,9 @@
     </parent>
 
     <groupId>com.billow</groupId>
-    <artifactId>springboot-template</artifactId>
+    <artifactId>Cabbage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-template</name>
+    <name>Cabbage</name>
     <description>一个spring boot 模板，集成redist和mybatis，使用mysql数据库。java8</description>
 
     <properties>
@@ -28,15 +32,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -56,11 +52,6 @@
             <version>8.0.16</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.9</version>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
